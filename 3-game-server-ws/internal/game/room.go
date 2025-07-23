@@ -10,11 +10,11 @@ import (
 当前代码使用了 sync.RWMutex 读写锁，这能有效避免并发读写 map 的问题，其工作原理如下：
 Join 和 Leave 方法（写操作）
 Join 和 Leave 方法在修改 players map 时使用了写锁（Lock 和 Unlock）：
-写锁是独占锁，当一个 goroutine 获取写锁后，其他 goroutine 既不能获取写锁，也不能获取读锁，直到写锁被释放。这意味着在 Join 或 Leave 方法执行期间，Broadcast 方法无法对 players 进行遍历。
+写锁是独占锁，当一个 goroutine 获取写锁后，other goroutine 既不能获取写锁，也不能获取读锁，直到写锁被释放。这意味着在 Join 或 Leave 方法执行期间，Broadcast 方法无法对 players 进行遍历。
 
 Broadcast 方法（读操作）
 Broadcast 方法在遍历 players map 时使用了读锁（RLock 和 RUnlock）：
-读锁允许多个 goroutine 同时获取，也就是说多个 Broadcast 方法可以并发执行。但在有 goroutine 持有读锁时，其他 goroutine 无法获取写锁，直到所有读锁都被释放。这保证了在 Broadcast 方法遍历 players 期间，Join 和 Leave 方法无法修改 players
+读锁允许多个 goroutine 同时获取，也就是说多个 Broadcast 方法可以并发执行。但在有 goroutine 持有读锁时，other goroutine 无法获取写锁，直到所有读锁都被释放。这保证了在 Broadcast 方法遍历 players 期间，Join 和 Leave 方法无法修改 players
 */
 
 // 房间类
