@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/go.iml" filepath="$PROJECT_DIR$/.idea/go.iml" />
-	  <module fileurl="file://$PROJECT_DIR$/.idea/1-go-core.iml" filepath="$PROJECT_DIR$/.idea/1-go-core.iml" />
-	  <module fileurl="file://$PROJECT_DIR$/../2-game-server-tcp/.idea/2-game-server-tcp.iml" filepath="$PROJECT_DIR$/../2-game-server-tcp/.idea/2-game-server-tcp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/1-go-core.iml" filepath="$PROJECT_DIR$/.idea/1-go-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../2-game-server-tcp/.idea/2-game-server-tcp.iml" filepath="$PROJECT_DIR$/../2-game-server-tcp/.idea/2-game-server-tcp.iml" />
       <module fileurl="file://$PROJECT_DIR$/../3-game-server-ws/.idea/3-game-server-ws.iml" filepath="$PROJECT_DIR$/../3-game-server-ws/.idea/3-game-server-ws.iml" />
       <module fileurl="file://$PROJECT_DIR$/../4-game-server-nano/.idea/4-game-server-nano.iml" filepath="$PROJECT_DIR$/../4-game-server-nano/.idea/4-game-server-nano.iml" />
+      <module fileurl="file://$PROJECT_DIR$/5-http-server-gin/.idea/5-http-server-gin.iml" filepath="$PROJECT_DIR$/5-http-server-gin/.idea/5-http-server-gin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/go.iml" filepath="$PROJECT_DIR$/.idea/go.iml" />
     </modules>
   </component>
 </project>
