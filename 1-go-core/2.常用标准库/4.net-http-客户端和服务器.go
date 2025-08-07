@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -38,4 +39,24 @@ func main() {
 		panic(err)
 	}
 	fmt.Println("All Content=", string(all))
+
+	///////////////////////使用http.Get方法调用一个链接/////////////////
+	fmt.Printf("Http请求实例")
+	resp, err1 := http.Get("https://jsonplaceholder.typicode.com/posts/1")
+	if err1 != nil {
+		fmt.Println("Http请求失败", err)
+		return
+	}
+	defer resp.Body.Close()
+
+	fmt.Println("相应状态码", resp.StatusCode)
+
+	var result map[string]interface{}
+	err = json.NewDecoder(resp.Body).Decode(&result)
+	if err != nil {
+		fmt.Println("JSON解析错误", err)
+		return
+	}
+	fmt.Println("帖子标题:", result["title"])
+
 }

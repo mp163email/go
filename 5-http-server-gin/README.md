@@ -1,7 +1,7 @@
 ```
 1.使用http.Server启动http服务
 2.但是http组装handler的时候，使用gin框架(gin.Engine实现了handler的接口),来实现了访问路由
-3.gin相关语法, gin的3个重要组件 1.Context-上下文 2.Router-路由 3.middleware中间件
+3.gin相关语法, gin的3个重要组件 1.Context-上下文 2.RouterGroup-路由 3.middleware中间件
 
  c *gin.Context 上下文，用来处理请求和响应
     c.Request 原始的http.Request

@@ -5,6 +5,12 @@ import (
 	"time"
 )
 
+/*
+  - Actor模型
+    1.可以接收消息
+    2.可以处理消息
+    3.可以订阅和处理事件
+*/
 func main() {
 	textHandler := func(a *Actor, msg Message) {
 		switch msg := msg.(type) {

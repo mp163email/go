@@ -3,7 +3,6 @@ package main
 import "sync"
 
 /*
-*
   - Actor模型
     1.可以接收消息
     2.可以处理消息
