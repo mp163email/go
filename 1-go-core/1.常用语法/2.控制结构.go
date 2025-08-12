@@ -28,7 +28,7 @@ func main() {
 	case "linux":
 		fmt.Println("os is linux")
 	default:
-		fmt.Println("os is other, os = ", os)
+		fmt.Println("os is 3.other, os = ", os)
 	}
 
 	// 循环

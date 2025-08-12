@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 /**
 典型的Coroutine+Channel的运用
@@ -24,4 +27,39 @@ func main() {
 	go sum1(s[len(s)/2:], c)
 	x, y := <-c, <-c       //从channel中取出数据来
 	fmt.Println(x, y, x+y) //打印值
+
+	cc := make(chan int)
+	go func() {
+		fmt.Println("cc 发送方准备发送数据: 1")
+		cc <- 1                               //走到这行, 会阻塞, 等待接收方接收
+		fmt.Println("cc 发送方完成发送,这行会在接收后才会执行") // 这行会在接收后才会执行
+	}()
+	time.Sleep(2 * time.Second)
+	fmt.Println("cc 接收方接收数据:", <-cc)
+
+	/**
+	带缓冲Channel就像一个有容量的队列
+	发送数据时只要队列不满就不会阻塞
+	接收数据时只要队列不空就不会阻塞
+	缓冲大小决定了可以"提前"发送多少数据而不用等待接收
+	合理设置缓冲大小可以提高程序性能，避免频繁阻塞
+	*/
+	//带缓冲的channel, 不用阻塞
+	ccc := make(chan int, 2)
+	go func() {
+		defer func() {
+			if err := recover(); err != nil { //捕获和处理panic异常
+				fmt.Printf("cc 协程发生panic: %v\n", err)
+			}
+		}()
+		fmt.Println("ccc 给带缓冲的channel发送一个数")
+		ccc <- 1
+		ccc <- 1
+		cc <- 1 //这里goroutine会泄漏，因为它永远无法完成（接收方只有1个）
+		fmt.Println("ccc 发送完数据,但是不用阻塞")
+	}()
+
+	time.Sleep(2 * time.Second)
+	received := <-ccc
+	fmt.Println("ccc 从带缓冲的channel接收一个数", received)
 }

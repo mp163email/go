@@ -15,6 +15,6 @@ func main() {
 	gameServer := network.NewGameServer()
 
 	if err := gameServer.Start(); err != nil {
-		log.Fatalf("Failed to start game server:%v", err)
+		log.Fatalf("Failed to start lit-game server:%v", err)
 	}
 }

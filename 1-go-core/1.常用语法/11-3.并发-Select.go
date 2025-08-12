@@ -6,6 +6,7 @@ import (
 )
 
 /**
+Select  会阻塞
 Select: 用于监听多个 channel 操作的一种机制
 Select: 从多个 channel 操作中选择一个可以执行
 
@@ -36,6 +37,22 @@ func main() {
 			fmt.Println("v2 = ", v2)
 			//default: //不阻塞,直接往下走
 			//	fmt.Println("default")
+		}
+	}
+
+	tick := time.Tick(100 * time.Millisecond)
+	boom := time.After(500 * time.Millisecond)
+
+	for {
+		select {
+		case <-tick:
+			fmt.Println("tick")
+		case <-boom:
+			fmt.Println("BOOM!")
+			return
+		default:
+			fmt.Println("    .")
+			time.Sleep(50 * time.Millisecond)
 		}
 	}
 }

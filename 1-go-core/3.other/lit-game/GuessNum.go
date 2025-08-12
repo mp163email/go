@@ -13,7 +13,7 @@ import (
 * 猜数字
 GOROOT=C:\Program Files\Go #gosetup
 GOPATH=C:\Users\miaopeng\go #gosetup
-"C:\Program Files\Go\bin\go.exe" build -o C:\Users\miaopeng\AppData\Local\JetBrains\GoLand2025.1\tmp\GoLand\___go_build_1_go_core_other_game.exe 1-go-core/other/game #gosetup
+"C:\Program Files\Go\bin\go.exe" build -o C:\Users\miaopeng\AppData\Local\JetBrains\GoLand2025.1\tmp\GoLand\___go_build_1_go_core_other_game.exe 1-go-core/3.other/lit-game #gosetup
 C:\Users\miaopeng\AppData\Local\JetBrains\GoLand2025.1\tmp\GoLand\___go_build_1_go_core_other_game.exe #gosetup
 欢迎来到猜数字游戏！
 我已经想好了一个1到100之间的数字，你可以开始猜了。

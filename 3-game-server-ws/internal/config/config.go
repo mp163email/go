@@ -24,7 +24,7 @@ type Config struct {
 	Game struct {
 		HeartbeanInterval time.Duration `yaml:"heartbeat_interval"` //最大多少秒没有收到心跳包就断开连接
 		MaxPlayers        int           `yaml:"max_players"`
-	} `yaml:"game"`
+	} `yaml:"lit-game"`
 }
 
 // 定义一个包级别的全局变量，用于存储配置信息

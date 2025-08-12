@@ -67,7 +67,7 @@ func (s *RoomService) Join(sin *session.Session, msg *protocol.ClientMessage) er
 	//处理创建房间
 	gameType, ok := data["gameType"].(string)
 	if !ok {
-		return errors.New("invalid game type") //errors.New返回的是一个error
+		return errors.New("invalid lit-game type") //errors.New返回的是一个error
 	}
 	room := s.manager.CreateRoom(gameType, player)
 	log.Println("room created success~", room.ID)

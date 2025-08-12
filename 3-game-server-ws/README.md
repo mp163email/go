@@ -2,7 +2,7 @@
 
 ```
 命令扩展：
-go get XXX                    #go get XXX 下载并安装指定的包及其依赖项
+go get XXX                    #go get XXX 下载并安装指定的包及其依赖项 go get github.com/redis/go-redis/v9
 go mod tidy                   #go mod tidy 确保go.mod文件中的依赖项与当前项目的代码匹配
 go mod init game-server-ws    #go mod init 初始化一个新的模块
 go mod graph                  #go mod graph 显示模块依赖图

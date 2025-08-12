@@ -42,7 +42,7 @@ func (s *GameServer) handlerWebsocket(w http.ResponseWriter, r *http.Request) {
 		// 终止当前函数的执行
 		return
 	}
-	// 调用 game.NewPlayer 函数创建一个新的玩家对象
+	// 调用 lit-game.NewPlayer 函数创建一个新的玩家对象
 	// 将升级后的 WebSocket 连接 conn 赋值给玩家对象
 	player := game.NewPlayer(conn) //把连接赋值给player
 
